@@ -1,5 +1,7 @@
 package JavaMiddle.Services;
 
+import JavaMiddle.Dto.RegPeople;
+import JavaMiddle.Mapping.PeopleMap;
 import JavaMiddle.Models.People;
 import JavaMiddle.Repository.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.util.List;
+
+import static JavaMiddle.Mapping.PeopleMap.PeopleToRegPeople;
+import static JavaMiddle.Mapping.PeopleMap.regPeopleToPeople;
+
 @Service
 public class PeopleServiceImpl implements PeopleService {
     @Autowired
@@ -20,8 +26,8 @@ public class PeopleServiceImpl implements PeopleService {
     }
 
     @Override
-    public List<People> getAll() {
-        return peopleRepository.findAll();
+    public List<RegPeople> getAll() {
+        return peopleRepository.findAll().stream().map(PeopleMap::PeopleToRegPeople).toList();
     }
 
     @Override

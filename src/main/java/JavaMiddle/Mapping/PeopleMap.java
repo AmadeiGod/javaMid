@@ -11,4 +11,9 @@ public class PeopleMap {
         people.setName(regPeople.name);
         return  people;
     }
+    public static RegPeople PeopleToRegPeople(People people){
+        RegPeople regpeople = new RegPeople();
+        regpeople.setName(people.getName());
+        return  regpeople;
+    }
 }

@@ -3,7 +3,6 @@ package JavaMiddle.Controllers;
 import JavaMiddle.Dto.RegPeople;
 import JavaMiddle.Models.People;
 import JavaMiddle.Services.PeopleServiceImpl;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +40,7 @@ public class RestController {
     }
     // Список всех клиентов
     @GetMapping("/getAll")
-    public ResponseEntity<List<People>> getAll(){
+    public ResponseEntity<List<RegPeople>> getAll(){
         return ResponseEntity.ok(peopleService.getAll());
     }
     // Список всех номеров клиента по id
